@@ -1,19 +1,21 @@
 package com.sparta.post.entity;
 
+import com.sparta.post.dto.AuthRequestDto;
 import jakarta.persistence.*;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Getter
-@Setter
 @NoArgsConstructor
+@EqualsAndHashCode // 클래스의 필드를 기반으로 equals()와 hashCode() 메서드를 자동으로 생성해주는 역할
 @Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "user_id")
+    private Long Id;
 
     @Column(nullable = false, unique = true)
     private String username;

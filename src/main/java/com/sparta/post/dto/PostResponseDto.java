@@ -10,17 +10,15 @@ public class PostResponseDto {
     private String username;
     private String title;
     private String content;
-    private String password;
     private Long id;
     private LocalDateTime createdAt;
     private LocalDateTime modifiedAt;
 
     public PostResponseDto(Post post) {
-        this.username = post.getUsername();
+        this.id = post.getId();
+        this.username = post.getUser().getUsername();
         this.title = post.getTitle();
         this.content = post.getContent();
-        this.password = post.getPassword();
-        this.id = post.getId();
         this.modifiedAt = post.getModifiedAt();
         this.createdAt = post.getCreatedAt();
     }
