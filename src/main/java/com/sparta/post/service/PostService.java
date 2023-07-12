@@ -67,9 +67,7 @@ public class PostService {
 
         Post post = findByPost(id);
 
-        if (!requestDto.getUsername().equals(user.getUsername())) {
-            throw new IllegalArgumentException("사용자가 일치하지 않습니다.");
-        }
+        checkUsername(requestDto.getUsername(), user.getUsername());
 
         if (!passwordEncoder.matches(password, user.getPassword())) {
             throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
@@ -82,5 +80,11 @@ public class PostService {
         return postRepository.findById(id).orElseThrow(() ->
                 new IllegalArgumentException("게시글을 찾을 수 없습니다.")
         );
+    }
+
+    private void checkUsername(String requestDtoUsername, String username) {
+        if (!requestDtoUsername.equals(username)) {
+            throw new IllegalArgumentException("사용자가 일치하지 않습니다.");
+        }
     }
 }
