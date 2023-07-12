@@ -1,4 +1,4 @@
-<h1>🐾 API 명세<h1>
+<h1>🐾 API 명세
   
 ![image](https://github.com/jiinse0/spring_Lv2/assets/130745679/7f680213-e31a-4dd4-b168-a302b7aec1c9)
 
